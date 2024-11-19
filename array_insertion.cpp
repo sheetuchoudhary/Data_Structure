@@ -29,7 +29,7 @@ int main() {
     arr[pos] = newElement;
     size++; // Incrementing the size after insertion
 
-    // Printing the updated array
+    
     cout << "Array after insertion: ";
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
