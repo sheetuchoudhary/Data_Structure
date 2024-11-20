@@ -1,62 +1,45 @@
-
 #include <iostream>
 using namespace std;
 
 int main() {
-    int arr[7] = {2, 21, 7, 10, 44, 25, 3};
-    int size = 7; 
-    int num;
-    int mid;
-    int r_index = -1;
-
-    // Sorting the array using Bubble Sort
-    for (int f = 0; f < size - 1; f++) {
-        for (int s = 0; s < size - f - 1; s++) {
-            if (arr[s] > arr[s + 1]) {
-                int temp = arr[s];
-                arr[s] = arr[s + 1];
-                arr[s + 1] = temp;
-            }
-        }
+    int size_num ;
+    cout<<"Enter the size or array : ";
+    cin>>size_num;
+    int arr[size_num];
+    int i=0;
+    for(int i=0;i<size_num;i++){
+      cout<<"enter the element "<< i+1 << " of array :";
+      cin>>arr[i];
     }
-
-    // Display the sorted array
-    cout << "The sorted array is: ";
-    cout << "[";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i];
-        if (i < size - 1) cout << ", ";
-    }
-    cout << "]" << endl;
-
-
-    cout << "Number to search: ";
-    cin >> num;
-
-    int low = 0, high = size - 1;
-    
-
-    while (low <= high)// terminate condition
+    cout << "The array is: ";
+    cout<<"[";
+    for (int i = 0; i < size_num; i++) 
     {
-        mid = low + (((high - low) *(num - arr[low]))/ arr[high]-arr[low]); // terminate condition
+        cout <<arr[i]<< ",";
+    }
+    cout<<"]"<<endl;
+    
+    int max_num = arr[0];
+    for (int j=0;j<size_num;j++){
 
-        if (arr[mid] == num) 
+        if (arr[j]>max_num)
         {
-            r_index = mid;
-            break;
-        } else if (arr[mid] < num) 
-        {
-            low = mid + 1;
-        } else 
-        {
-            high = mid - 1;
+          max_num = arr[j];
         }
     }
+          cout<<"the maximum number : "<<max_num<<endl;
+          
 
-    if (r_index != -1)
-        cout << "Element found at index " << r_index << endl;
-    else
-        cout << "Element not found in the array." << endl;
+    int min_num = arr[0];
+    for(int k=0;k<size_num; k++)
+    {
+      if (arr[k]<min_num)
+      {
+        min_num = arr[k];
+      }
+    }      
 
-    return 0;
+    cout<<"the minimum number : "<<min_num<<endl;
+          return 0;
+
 }
